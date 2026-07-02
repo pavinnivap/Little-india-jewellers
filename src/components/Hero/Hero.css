@@ -1,0 +1,238 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-secondary);
+  padding-top: calc(var(--header-height) + 2rem);
+  padding-bottom: 4rem;
+}
+
+/* Background Image Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.72) 0%, rgba(13, 36, 68, 0.92) 100%),
+              url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+/* Hero Content Area */
+.hero-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #42A5F5;
+  border: 1px solid #42A5F5;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 1.8rem;
+  font-weight: 500;
+  background: rgba(21, 101, 192, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.gold-text {
+  color: #42A5F5;
+  background: linear-gradient(135deg, #90CAF9 0%, #42A5F5 50%, #1565C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-family: var(--font-headings);
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hero-btn {
+  min-width: 180px;
+}
+
+/* Floating Gold Particle System */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gold-particle {
+  position: absolute;
+  bottom: -20px;
+  background: radial-gradient(circle, #90CAF9 0%, #42A5F5 60%, transparent 100%);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px #42A5F5);
+  opacity: 0;
+  animation: ascendGold 8s linear infinite;
+}
+
+@keyframes ascendGold {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(50px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Mouse Scroll Down Indicator */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.scroll-down-indicator:hover {
+  color: var(--color-primary);
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid currentColor;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 2px;
+  animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: calc(var(--header-height) + 1rem);
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .scroll-down-indicator {
+    display: none; /* Hide scroll down on mobile to save space */
+  }
+}
