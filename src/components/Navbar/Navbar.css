@@ -1,3 +1,6 @@
+/* ===========================
+   NAVBAR — Base styles
+=========================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -7,20 +10,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
   transition: all 0.4s ease-in-out;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-
-/* Scrolled State (Glassmorphism + Gold Border) */
-.navbar.scrolled {
-  background: rgba(25, 22, 65, 0.95);
-  height: 70px;
+  background: rgba(25, 22, 65, 0.97);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid rgba(66, 165, 245, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled {
+  height: 70px;
 }
 
 .navbar-container {
@@ -31,12 +31,16 @@
   height: 100%;
 }
 
+/* ===========================
+   LOGO
+=========================== */
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   cursor: pointer;
   text-decoration: none;
+  z-index: 1002;
 }
 
 .logo-img {
@@ -53,40 +57,39 @@
 
 .logo-text {
   font-family: var(--font-headings);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-primary);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   white-space: nowrap;
 }
 
+/* ===========================
+   DESKTOP NAV LINKS
+=========================== */
 .nav-menu {
   display: flex;
   align-items: center;
   gap: 2rem;
+  list-style: none;
 }
 
 .nav-item {
   height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 0.5rem 0;
   position: relative;
-}
-
-/* Active navigation state for desktop */
-.navbar:not(.scrolled) .nav-links {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.navbar.scrolled .nav-links {
-  color: #dddddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .nav-links::after {
@@ -108,13 +111,37 @@
   width: 100%;
 }
 
+.navbar.scrolled .nav-links {
+  color: #dddddd;
+}
+
+/* ===========================
+   HAMBURGER ICON
+=========================== */
 .menu-icon {
   display: none;
   color: var(--color-primary);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
+  z-index: 1002;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.menu-icon:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Hide close btn inside panel on desktop */
+.nav-close-btn {
+  display: none;
+}
+
+/* ===========================
+   DESKTOP MISC
+=========================== */
 .nav-cta {
   display: flex;
   align-items: center;
@@ -129,54 +156,137 @@
   display: none;
 }
 
-/* Responsive Breakpoints */
+/* ===========================
+   OVERLAY (mobile backdrop)
+=========================== */
+.nav-overlay {
+  display: none;
+}
+
+/* ===========================
+   TABLET — 768–991px
+=========================== */
 @media (max-width: 991px) {
   .nav-menu {
     gap: 1.2rem;
   }
-  
+
   .logo-text {
     font-size: 1.1rem;
   }
-  
+
   .nav-cta-btn {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
   }
 }
 
+/* ===========================
+   MOBILE — ≤767px
+=========================== */
 @media (max-width: 767px) {
+
+  /* Show hamburger */
   .menu-icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  /* Slide-in drawer from the right */
   .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
+    width: 78%;
+    max-width: 320px;
     height: 100vh;
-    background: rgba(25, 22, 65, 0.98);
-    backdrop-filter: var(--glass-blur);
+    background: linear-gradient(160deg, #191641 0%, #0d0b2e 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-    transition: right 0.5s ease-in-out;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.8);
-    border-left: 1px solid rgba(66, 165, 245, 0.2);
+    gap: 0;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -6px 0 40px rgba(0, 0, 0, 0.7);
+    border-left: 1px solid rgba(66, 165, 245, 0.25);
+    z-index: 1001;
+    padding: 2rem 1.5rem;
+    list-style: none;
+    overflow-y: auto;
   }
 
   .nav-menu.active {
     right: 0;
   }
 
+  /* Close × button inside panel */
+  .nav-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding-right: 0.2rem;
+    transition: color 0.3s ease;
+    list-style: none;
+  }
+
+  .nav-close-btn:hover {
+    color: var(--color-primary);
+  }
+
+  /* Each nav link row */
+  .nav-item {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
   .nav-links {
-    font-size: 1.1rem;
     display: block;
     width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
     text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 2px;
+  }
+
+  .nav-links:hover {
+    color: var(--color-primary) !important;
+    background: rgba(66, 165, 245, 0.06);
+    border-radius: 6px;
+  }
+
+  .nav-links::after {
+    display: none;
+  }
+
+  /* Dark translucent overlay behind the drawer */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: overlayFadeIn 0.3s ease forwards;
+  }
+
+  @keyframes overlayFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   .nav-cta {
@@ -185,14 +295,33 @@
 
   .mobile-btn {
     display: block;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
   }
-  
+
   .navbar.scrolled {
     height: 60px;
   }
-  
+
   .logo-img {
-    height: 38px;
+    height: 36px;
+  }
+
+  .logo-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===========================
+   VERY SMALL — ≤380px
+=========================== */
+@media (max-width: 380px) {
+  .logo-text {
+    font-size: 0.8rem;
+  }
+
+  .logo-img {
+    height: 30px;
   }
 }

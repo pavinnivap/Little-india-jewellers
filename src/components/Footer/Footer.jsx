@@ -20,7 +20,6 @@ const Footer = () => {
     { name: 'Gold Jewelry', href: '#collections' },
     { name: 'Diamond Jewelry', href: '#collections' },
     { name: 'Wedding Collections', href: '#collections' },
-    { name: 'Luxury Watches', href: '#collections' },
     { name: 'Necklaces', href: '#collections' },
     { name: 'Bracelets', href: '#collections' },
     { name: 'Earrings', href: '#collections' },
@@ -53,7 +52,7 @@ const Footer = () => {
                 Timeless Prosperity, Generation To Generation
               </p>
               <p className="footer-desc">
-                Serving Malaysia with premium quality gold jewelry and luxury watches since 1987. Your trust is our greatest achievement.
+                Serving Malaysia with premium quality gold and diamond jewelry since 1987. Your trust is our greatest achievement.
               </p>
               <div className="footer-social">
                 {socialLinks.map((social, idx) => (

@@ -48,25 +48,25 @@ const Hero = () => {
             Trusted Since 1987
           </p>
           <p className="hero-description animate-item fade-up animate-active">
-            Discover exquisite handcrafted jewelry and luxury watches designed to celebrate every precious moment of your life.
+            Discover exquisite handcrafted jewelry designed to celebrate every precious moment of your life.
           </p>
-          <div className="hero-buttons animate-item fade-up animate-active">
+          {/* <div className="hero-buttons animate-item fade-up animate-active">
             <a href="#collections" className="btn btn-primary hero-btn">
               View Collection
             </a>
             <a href="#contact" className="btn btn-secondary hero-btn">
               Contact Us
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       
       {/* Scroll Down Indicator */}
       <a href="#about" className="scroll-down-indicator">
-        <div className="mouse">
+        {/* <div className="mouse">
           <div className="wheel"></div>
-        </div>
-        <span>Explore More</span>
+        </div> */}
+        {/* <span>Explore More</span> */}
       </a>
     </section>
   );

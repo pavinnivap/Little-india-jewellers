@@ -18,13 +18,13 @@ const About = () => {
           <div className="about-content animate-item fade-left">
             <span className="about-subtitle">KOPATHA GROUP</span>
             <h2 className="about-title">A Legacy of Timeless Elegance</h2>
-            
+
             <p className="about-text-highlight">
-              Serving customers with premium quality jewelry and luxury watches across Kuala Lumpur, Penang, and Klang.
+              Serving customers with premium quality jewelry and fine designs across Kuala Lumpur, Penang, and Klang.
             </p>
-            
+
             <p className="about-text">
-              Kopatha Group has been serving customers since 1987 with premium quality jewelry and luxury watches. Our commitment to craftsmanship, authenticity, and customer satisfaction has made us one of the trusted jewelry brands across Kuala Lumpur, Penang, and Klang.
+              Kopatha Group has been serving customers since 1987 with premium quality gold and diamond jewelry. Our commitment to craftsmanship, authenticity, and customer satisfaction has made us one of the trusted jewelry brands across Kuala Lumpur, Penang, and Klang.
             </p>
 
             {/* Mission & Vision */}
@@ -57,16 +57,16 @@ const About = () => {
           <div className="about-images animate-item fade-right">
             <div className="image-wrapper main-img-wrapper">
               <img
-                src="https://images.unsplash.com/photo-1582037919864-b38fae630cc6?q=80&w=800&auto=format&fit=crop"
+                src="images/inside-shop.png"
                 alt="Kopatha Group luxury jewelry showroom interior"
                 className="about-img main-img"
               />
               <div className="gold-frame"></div>
             </div>
-            
+
             <div className="image-wrapper secondary-img-wrapper">
               <img
-                src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=600&auto=format&fit=crop"
+                src="images/img2.jpg"
                 alt="Exquisite gold and diamond jewelry"
                 className="about-img secondary-img"
               />

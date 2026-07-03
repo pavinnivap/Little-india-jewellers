@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   FaCalendarAlt, 
   FaCertificate, 
-  FaClock, 
+  FaPalette, 
   FaHandshake, 
   FaGem, 
   FaTags, 
@@ -24,9 +24,9 @@ const WhyChoose = () => {
       description: 'All gold is strictly 916 hallmarked, and diamonds are GIA certified for complete authenticity.'
     },
     {
-      icon: <FaClock />,
-      title: 'Luxury Watches',
-      description: 'An authentic and curated range of premium timepieces from leading global watchmakers.'
+      icon: <FaPalette />,
+      title: 'Bespoke Jewelry',
+      description: 'Work with our master artisans to create custom-made jewelry pieces tailored to your vision.'
     },
     {
       icon: <FaHandshake />,

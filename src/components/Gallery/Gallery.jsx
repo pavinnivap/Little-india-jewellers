@@ -3,114 +3,206 @@ import { FaTimes, FaSearchPlus, FaChevronLeft, FaChevronRight } from 'react-icon
 import './Gallery.css';
 
 const Gallery = () => {
-  const [filter, setFilter] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(8);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const galleryItems = [
     {
       id: 1,
       category: 'gold',
-      title: '916 Gold Bridal Necklace Set',
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
-      desc: 'Traditional South Indian haram with kundan work.'
+      title: 'Prestige Gold Floral Pendant',
+      image: 'images/IMG_20260704_133909.jpg',
+      desc: 'Crafted in 916 gold with dual-tone rose gold accents.'
     },
     {
       id: 2,
-      category: 'diamond',
-      title: 'Diamond Solitaire Ring',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop',
-      desc: 'GIA-certified brilliant cut diamond in 18k white gold.'
+      category: 'bracelets',
+      title: 'Elegant Multi-Strand Bangle',
+      image: 'images/IMG_20260704_133945.jpg',
+      desc: 'Four-row gold and rhodium beaded bracelet.'
     },
     {
       id: 3,
-      category: 'watches',
-      title: 'Prestige Gold Timepiece',
-      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop',
-      desc: 'Swiss-movement luxury watch in solid gold casing.'
+      category: 'bracelets',
+      title: 'Filigree Gold Cuff Bangle',
+      image: 'images/IMG_20260704_134005.jpg',
+      desc: 'Exquisite openwork mesh cuff with central floral motif.'
     },
     {
       id: 4,
-      category: 'wedding',
-      title: 'Grand Bridal Gold Set',
-      image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop',
-      desc: 'Complete bridal set with matching bangles and earrings.'
+      category: 'bracelets',
+      title: 'Fancy Flower Link Bracelet',
+      image: 'images/IMG_20260704_134022.jpg',
+      desc: 'Multiple strands of delicate gold flower links.'
     },
     {
       id: 5,
-      category: 'gold',
-      title: 'Gold Jhumka Earrings',
-      image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=600&auto=format&fit=crop',
-      desc: 'Handcrafted 22k gold jhumkas with stone work.'
+      category: 'bracelets',
+      title: 'Bold Curb Chain & Bar Bracelet',
+      image: 'images/IMG_20260704_134038.jpg',
+      desc: 'Heavy links paired with dual-tone texturized bars.'
     },
     {
       id: 6,
-      category: 'rings',
-      title: 'Floral Diamond Band Ring',
-      image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=600&auto=format&fit=crop',
-      desc: 'Pave-set diamond ring in 18k rose gold.'
+      category: 'gold',
+      title: 'Classic Royal Choker',
+      image: 'images/IMG_20260704_134052.jpg',
+      desc: 'Detailed heritage choker featuring delicate gold bead drops.'
     },
     {
       id: 7,
-      category: 'showroom',
-      title: 'Kopatha KL Showroom',
-      image: 'https://images.unsplash.com/photo-1582037919864-b38fae630cc6?q=80&w=800&auto=format&fit=crop',
-      desc: 'Our premium luxury showroom in Jalan Masjid India.'
+      category: 'bracelets',
+      title: 'Delicate Floral Chain Bracelet',
+      image: 'images/IMG_20260704_134111.jpg',
+      desc: 'Interlinked gold blossoms with precision diamond cuts.'
     },
     {
       id: 8,
       category: 'wedding',
-      title: 'Bridal Diamond Choker',
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop',
-      desc: 'Polki diamond bridal choker with matching maang tikka.'
+      title: 'Royal Bridal Double Haram Set',
+      image: 'images/IMG_20260704_134137.jpg',
+      desc: 'Layered gold and diamond-cut bridal necklaces.'
     },
     {
       id: 9,
-      category: 'bracelets',
-      title: 'Diamond Tennis Bracelet',
-      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop',
-      desc: 'Channel-set diamonds in 18k white gold.'
+      category: 'gold',
+      title: 'Decorative Hanging Jhumkas',
+      image: 'images/IMG_20260704_134206.jpg',
+      desc: 'Filigree balls with adjustable links.'
     },
     {
       id: 10,
-      category: 'watches',
-      title: 'Classic Skeleton Watch',
-      image: 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=600&auto=format&fit=crop',
-      desc: 'Open-heart automatic movement luxury watch.'
+      category: 'gold',
+      title: 'Long Kasu Mala Haram',
+      image: 'images/IMG_20260704_134218.jpg',
+      desc: 'Traditional coin-style necklace with grand central pendant.'
     },
     {
       id: 11,
-      category: 'gold',
-      title: 'Gold Antique Bangles',
-      image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=600&auto=format&fit=crop',
-      desc: 'Hand-engraved antique gold kada set of four.'
+      category: 'diamond',
+      title: 'Mother-of-Pearl Chic Bracelets',
+      image: 'images/IMG_20260704_134236.jpg',
+      desc: 'Three individual stacked bracelets with unique geometry.'
     },
     {
       id: 12,
+      category: 'gold',
+      title: 'Rose Gold Leaf Necklace',
+      image: 'images/IMG_20260704_134254.jpg',
+      desc: 'Modern floral collar styled with satin-finished rose gold leaves.'
+    },
+    {
+      id: 13,
+      category: 'bracelets',
+      title: 'Diamond Accent Geometry Chain',
+      image: 'images/IMG_20260704_134312.jpg',
+      desc: 'Close-up detail of geometric link bracelet.'
+    },
+    {
+      id: 14,
+      category: 'gold',
+      title: 'Sacred Mangalsutra Chain',
+      image: 'images/IMG_20260704_143558.jpg',
+      desc: 'Auspicious black beads and gold links with a modern pendant.'
+    },
+    {
+      id: 15,
+      category: 'wedding',
+      title: 'Heritage Antique Choker Set',
+      image: 'images/IMG_20260704_143622.jpg',
+      desc: 'Matte gold choker with pastel enameling and pearls.'
+    },
+    {
+      id: 16,
+      category: 'gold',
+      title: 'Chandelier Filigree Earrings',
+      image: 'images/IMG_20260704_143637.jpg',
+      desc: 'Three-tone gold tear-drop hanging earrings.'
+    },
+    {
+      id: 17,
+      category: 'gold',
+      title: 'Artistic Floral Pendant',
+      image: 'images/IMG_20260704_143711.jpg',
+      desc: 'Layered gold and silver-finished flower pendant.'
+    },
+    {
+      id: 18,
+      category: 'gold',
+      title: 'Weaved Gold Collar Tassel',
+      image: 'images/IMG_20260704_143731.jpg',
+      desc: 'Multi-row mesh choker with central loop and tassels.'
+    },
+    {
+      id: 19,
+      category: 'gold',
+      title: 'Grand Temple Jhumka Earrings',
+      image: 'images/IMG_20260704_143748.jpg',
+      desc: 'Detailed jhumkas with multi-row fine chain tassels.'
+    },
+    {
+      id: 20,
+      category: 'diamond',
+      title: 'Two-Tone Wave Diamond Bracelets',
+      image: 'images/IMG_20260704_143843.jpg',
+      desc: 'Textured wave links with brilliant diamond studs.'
+    },
+    {
+      id: 21,
+      category: 'bracelets',
+      title: 'Children Enamel Charm Bangles',
+      image: 'images/IMG_20260704_143912.jpg',
+      desc: 'Playful gold band bracelets with colorful butterfly and flower charms.'
+    },
+    {
+      id: 22,
+      category: 'bracelets',
+      title: 'Traditional Gold Kada Bangles',
+      image: 'images/img1.jpg',
+      desc: 'Thick gold bangles with intricate textured patterns.'
+    },
+    {
+      id: 23,
+      category: 'gold',
+      title: 'Solid Gold Rope Chain',
+      image: 'images/img2.jpg',
+      desc: 'Classic twist-rope chain in 916 gold.'
+    },
+    {
+      id: 24,
+      category: 'rings',
+      title: 'Zeenat Trio Fashion Rings',
+      image: 'images/img3.jpg',
+      desc: 'Three-tone statement rings with circular diamond surrounds.'
+    },
+    {
+      id: 25,
+      category: 'gold',
+      title: 'Traditional Jhumka Hangings',
+      image: 'images/img4.jpg',
+      desc: 'Double-decker filigree jhumka earrings.'
+    },
+    {
+      id: 26,
+      category: 'wedding',
+      title: 'Bridal Couture Necklace Set',
+      image: 'images/img5.jpg',
+      desc: 'Double-strand leaf motif necklace with large drop pendant.'
+    },
+    {
+      id: 27,
+      category: 'showroom',
+      title: 'Kopatha Showroom Showcase',
+      image: 'images/inside-shop2.jpg',
+      desc: 'A view of our premium showroom jewelry exhibits.'
+    },
+    {
+      id: 28,
       category: 'moments',
       title: 'Happy Customer Moment',
       image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=600&auto=format&fit=crop',
       desc: 'A wonderful couple making memories with Kopatha.'
     }
   ];
-
-  // Filter logic
-  const filteredItems = filter === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === filter);
-
-  // Load more logic
-  const displayedItems = filteredItems.slice(0, visibleCount);
-  const hasMore = filteredItems.length > visibleCount;
-
-  const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 4);
-  };
-
-  const handleFilterChange = (cat) => {
-    setFilter(cat);
-    setVisibleCount(8); // Reset count when changing filter
-  };
 
   // Lightbox handlers
   const openLightbox = (index) => {
@@ -123,25 +215,13 @@ const Gallery = () => {
 
   const showNext = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev + 1) % displayedItems.length);
+    setLightboxIndex((prev) => (prev + 1) % galleryItems.length);
   };
 
   const showPrev = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev - 1 + displayedItems.length) % displayedItems.length);
+    setLightboxIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
   };
-
-  const categories = [
-    { id: 'all', label: 'All Pieces' },
-    { id: 'gold', label: 'Gold' },
-    { id: 'diamond', label: 'Diamond' },
-    { id: 'wedding', label: 'Wedding' },
-    { id: 'watches', label: 'Watches' },
-    { id: 'bracelets', label: 'Bracelets' },
-    { id: 'rings', label: 'Rings' },
-    { id: 'showroom', label: 'Showroom' },
-    { id: 'moments', label: 'Moments' },
-  ];
 
   return (
     <section id="gallery" className="gallery-section section">
@@ -150,27 +230,14 @@ const Gallery = () => {
         <div className="section-header animate-item fade-up">
           <span className="about-subtitle">VISUAL SHOWCASE</span>
           <h2>The Kopatha Gallery</h2>
-          <p>Admire our curated gallery featuring gold masterpieces, precision timepieces, showroom elegance, and timeless moments from our customers.</p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="filter-tabs animate-item fade-up">
-          {categories.map(tab => (
-            <button
-              key={tab.id}
-              className={`filter-btn ${filter === tab.id ? 'active' : ''}`}
-              onClick={() => handleFilterChange(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
+          <p>Admire our curated gallery featuring gold masterpieces, bespoke creations, showroom elegance, and timeless moments from our customers.</p>
         </div>
 
         {/* Gallery Grid */}
         <div className="gallery-grid">
-          {displayedItems.map((item, index) => (
-            <div 
-              key={item.id} 
+          {galleryItems.map((item, index) => (
+            <div
+              key={item.id}
               className="gallery-card animate-item zoom-in"
               onClick={() => openLightbox(index)}
             >
@@ -185,15 +252,6 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-
-        {/* Load More Button */}
-        {hasMore && (
-          <div className="load-more-container animate-item fade-up">
-            <button className="btn btn-primary" onClick={handleLoadMore}>
-              Load More
-            </button>
-          </div>
-        )}
       </div>
 
       {/* Lightbox Overlay */}
@@ -202,23 +260,23 @@ const Gallery = () => {
           <button className="lightbox-close" onClick={closeLightbox}>
             <FaTimes />
           </button>
-          
+
           <button className="lightbox-nav lightbox-prev" onClick={showPrev}>
             <FaChevronLeft />
           </button>
-          
+
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <img 
-              src={displayedItems[lightboxIndex].image} 
-              alt={displayedItems[lightboxIndex].title} 
-              className="lightbox-img" 
+            <img
+              src={galleryItems[lightboxIndex].image}
+              alt={galleryItems[lightboxIndex].title}
+              className="lightbox-img"
             />
             <div className="lightbox-info">
-              <h3>{displayedItems[lightboxIndex].title}</h3>
-              <p>{displayedItems[lightboxIndex].desc}</p>
+              <h3>{galleryItems[lightboxIndex].title}</h3>
+              <p>{galleryItems[lightboxIndex].desc}</p>
             </div>
           </div>
-          
+
           <button className="lightbox-nav lightbox-next" onClick={showNext}>
             <FaChevronRight />
           </button>
