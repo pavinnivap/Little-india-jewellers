@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="footer-brand">
               <div className="footer-logo">
                 <img src={logo} alt="Kopatha Group Logo" />
-                <span className="footer-brand-name">KOPATHA GROUP</span>
+                <span className="footer-brand-name">LITTLE INDIA JEWELLERS</span>
               </div>
               <p className="footer-tagline">
                 Timeless Prosperity, Generation To Generation
@@ -131,7 +131,7 @@ const Footer = () => {
       {/* Footer Bottom Bar */}
       <div className="footer-bottom">
         <div className="container">
-          <p>© {currentYear} Kopatha Group. All Rights Reserved.</p>
+          <p>© {currentYear} little india jewellers. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

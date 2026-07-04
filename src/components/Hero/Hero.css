@@ -67,11 +67,8 @@
 }
 
 .gold-text {
-  color: #42A5F5;
-  background: linear-gradient(135deg, #90CAF9 0%, #42A5F5 50%, #1565C0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+  color: #2585f3;
+ 
   filter: drop-shadow(0 2px 8px rgba(21, 101, 192, 0.6));
 }
 
